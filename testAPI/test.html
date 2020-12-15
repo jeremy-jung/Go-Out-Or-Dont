@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<!-- Example usage of Weather API-->
+    <head>
+        <script src="./xhr.js"></script>
+        <script src ="./weatherApi.js"></script>
+        <script src="./covidApi.js"></script>
+    </head>
+    <body>
+        <script>
+            "use strict";
+            // WHO guidelines say we want case positivity rates to be below 5% (measures the percentage
+            // of total tests conducted that are coming back positive)
+            // high positive rates mean not enough visibility ( not enough testing being done)
+
+            // this means CASE COUNTS are either reliable or not
+
+            const getCountryAqiInfo = async (country, callback) => {
+                let apikey = "f404ea3d-b343-476f-ac51-9f8598670a2e";
+
+                var request = await sendXHR("GET", urlConcat); // send request
+
+                request.onload = function () {
+
+                    var responseRaw = request.response;
+                    var responseParsed = JSON.parse(responseRaw);
+
+                    var responseFiltered = {};
+                    // responseFiltered["name"] = responseParsed.country;
+                    // responseFiltered["todayCases"] = responseParsed.todayCases;
+
+                    // parse api response with necessary information
+                    // var responseParsed = {};
+                    // execute callback function
+                    callback(responseParsed);
+                }
+
+            }
+            
+            const getAllCountriesAqi = async (callback) => {
+                let apikey = "f404ea3d-b343-476f-ac51-9f8598670a2e";
+                let url = ""
+                var request = await sendXHR("GET", urlConcat); // send request
+
+                request.onload = function () {
+
+                    var responseRaw = request.response;
+                    var responseParsed = JSON.parse(responseRaw);
+
+                    var responseFiltered = {};
+                    // responseFiltered["name"] = responseParsed.country;
+                    // responseFiltered["todayCases"] = responseParsed.todayCases;
+
+                    // parse api response with necessary information
+                    // var responseParsed = {};
+                    // execute callback function
+                    callback(responseParsed);
+                }
+            }
+
+            getAllCountriesCovid( function (response) {
+                console.log("Countries: ", response);
+                
+            })
+
+            getAllStatesCovid( function(response) {
+                console.log("States: ", response);
+            })
+
+            getCountryCovidInfo("South Africa", function (response) {
+                console.log("Country Covid Info: " ,response);
+            });
+
+            getStateCovidInfo("ca", function (response) {
+                console.log("State Covid Info: ", response);
+            })
+
+
+            // First input: cityName
+            // Second input: function to call after api response
+            getCityWeather("London", function (response) {
+                
+                // How to parse information from response:
+
+                var country = response.country;
+                var region =  response.region;
+                var name = response.name;
+                var condition = response.condition
+                var local_time = response.local_time
+                var temp_f = response.temp_f;
+                var feelslike_f = response.feelslike_f;
+                var humidity = response.humidity;
+                var uv = response.uv;
+
+                console.log("country: ", country);
+                console.log("region: ", region);
+                console.log("name: ", name);
+                console.log("condition: ", condition);
+                console.log("local_time: ", local_time);
+                console.log("temp_f: ", temp_f);
+                console.log("feelslike_f: ", feelslike_f);
+                console.log("humidity: ", humidity);
+                console.log("uv: ", uv);
+            })
+        </script>
+    </body>
+</html>
