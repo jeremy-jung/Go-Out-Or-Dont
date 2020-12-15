@@ -27,7 +27,7 @@ export class Result extends React.Component{
     }
 
     componentDidMount(){
-        var url = "https://final-project-comp20.herokuapp.com/api/rate/country/?location=S.%20Korea";
+        var url = "https://shouldigoout.herokuapp.com/api/rate/country/?location=S.%20Korea";
         fetch(url)
         .then(res => res.json())
         .then(data => {

@@ -53,7 +53,7 @@ class AddList extends React.Component {
 
     // Get the list of countries
     getCountries = () => {
-        var API_URL = "https://final-project-comp20.herokuapp.com/api/countries";
+        var API_URL = "https://shouldigoout.herokuapp.com/api/countries";
         fetch(API_URL)
             .then(
                 (response) => response.json()
@@ -70,7 +70,7 @@ class AddList extends React.Component {
 
     // Get the list of States
     getStates = () => {
-        var API_URL = "https://final-project-comp20.herokuapp.com/api/states";
+        var API_URL = "https://shouldigoout.herokuapp.com/api/states";
         fetch(API_URL)
             .then(
                 (response) => response.json()
