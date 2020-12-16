@@ -93,15 +93,16 @@ export class Result extends React.Component{
         if (this.state.apiResponse == true) {
             const learningMore = this.state.learningMore;
             let score;
-            let message = 'You should go out today!';
+            let message = '';
+            
+            if (this.state.items[3].goout == true) {
+                message = 'You should go out today!';
+            }
+            else {
+                message = 'Maybe you should stay home today...';
+            }
+
             let details;
-            let querystring = this.props.match.params.id.substring(1);
-            let placindexComma = querystring.indexOf(",");
-            let place = querystring.substring(0, placindexComma);
-            let worldOption = querystring.substring(placindexComma + 1);
-            // console.log(this.props.match.params.id.substring(1));
-            console.log("place: ", place)
-            console.log("worldoption: ", worldOption)
 
             if (learningMore) {
                 details =
