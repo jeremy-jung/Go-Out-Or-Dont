@@ -44,7 +44,9 @@ const getPassingCountries = (callback) => {
                 if (countriesCityMap[name] != undefined) {
                     // check if capital of country is defined
                     if (countriesCityMap[name] != null) {
-                        passingCountries.push(name);
+                        if( name != "Columbia") {
+                            passingCountries.push(name);
+                        }
                     }
                 }
             }
@@ -76,16 +78,16 @@ const testCovidCountry = () => {
     let highestCases = 1000;
     for (let testTodayCases = 0; testTodayCases <= highestCases; testTodayCases+= 10) {
         let result = utils.rateCovidCountry(testTodayCases);
-        console.log("test TodayCases: " + testTodayCases, "...... rating: " + result);
+        // console.log("test TodayCases: " + testTodayCases, "...... rating: " + result);
     }
 }
 
 const testCovidState = () => {
-    for (let testPositiveIncrease = 0; testPositiveIncrease <= 1000; testPositiveIncrease += 10) {
-        for (let testNegativeIncrease = 0; testNegativeIncrease <= 2000; testNegativeIncrease += 10) {
+    for (let testPositiveIncrease = 0; testPositiveIncrease <= 1000; testPositiveIncrease += 50) {
+        for (let testNegativeIncrease = 0; testNegativeIncrease <= 2000; testNegativeIncrease += 50) {
             let result = utils.rateCovidState(testPositiveIncrease, testNegativeIncrease);
             if (result > 0) {
-                console.log("test + increase: " + testPositiveIncrease, "test - increase: " + testNegativeIncrease, "...... rating: " + result);
+                // console.log("test + increase: " + testPositiveIncrease, "test - increase: " + testNegativeIncrease, "...... rating: " + result);
             }
         }
     }
@@ -100,6 +102,6 @@ const runTests = () => {
     testWeatherCountriesCityMap();
     testCovidCountriesToCountriesCityMap();
 }
-
+// runTests();
 
 module.exports.getPassingCountries = getPassingCountries;
