@@ -59,7 +59,7 @@ export class Result extends React.Component{
 
     render(){
         const learningMore = this.state.learningMore;
-        let score;
+        let score ='3/5';
         // console.log(this.state.items[3]);
         // let goOut =  Boolean.parseBoolean(this.state.items[3]['goout']);
         // if (goOut['goout'] == 'false'){
@@ -110,16 +110,11 @@ export class Result extends React.Component{
                     {score}
                     <div>
                     <p style={{marginTop: '35px'}}>{message}</p>
-                     {/* the score out of ten */}
-                     {/* statement that says whether user should leave the house */}
                      <button onClick={this.handleLearnMore}>see why</button>
                      <p></p>
                      </div>
                  </div>
                  {details}
-                    {/* {items.map(item =>(
-                        <div key={item.uv}>{item.uv} {item.temp}></div>
-                    ))} */}
             </div>
         );
     }
