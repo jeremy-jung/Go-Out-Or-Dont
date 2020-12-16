@@ -45,7 +45,7 @@ class AddList extends React.Component {
         this.getStates = this.getStates.bind(this);
    
         
-        // this.setLoccArr();
+        this.setLoccArr();
         this.getCountries();
         this.getStates();
     }
@@ -106,6 +106,7 @@ class AddList extends React.Component {
         const locc = me.doc('locations');
 
         locc.onSnapshot(docSnapshot => {
+            
             this.setState({
                 locArr: docSnapshot.data().locations
             });
@@ -181,7 +182,10 @@ class AddList extends React.Component {
                     </div>
                     <div>
                         {this.state.locArr.map((element) => {
-                            return <div> <Link to = {"/result/" + element} className = {element} value = {element} onClick={() => {this.sendToRes(element)}}>{element}</Link>  </div>
+                            let querystring = "" + element;
+                            let placindexComma = querystring.indexOf(",");
+                            let place = querystring.substring(0, placindexComma);
+                            return <div> <Link to = {"/result/" + element} className = {element} value = {element} >{place}</Link>  </div>
                         })}
                     </div>    
                 </main>

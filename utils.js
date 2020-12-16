@@ -1104,8 +1104,9 @@ const rateForCountry = (covidResponse, weatherResponse) => {
 }
 
 const rateTemperature = (temperature) => {
-    let dividedByTen = Math.floor(Math.abs(98.6 - temperature) / 10);
-    // console.log(temperature);
+    let dividedByTen = Math.floor(Math.abs(98.6 - temperature) / 20);
+    console.log("Temperature in F: ", temperature);
+
     let tempOutOfFive = 0;
     if (dividedByTen > 5) {
         tempOutOfFive = 0;
@@ -1113,21 +1114,33 @@ const rateTemperature = (temperature) => {
     else {
         tempOutOfFive = 5 - dividedByTen;
     }
-    return tempOutOfFive.toFixed(2);
+    let rate = tempOutOfFive.toFixed(2);
+    console.log("Rate: ", rate);
+    return rate
 }
 
 const rateCovidState = (positiveIncrease, negativeIncrease) => {
+    console.log("rating COVID for state...")
+
     let proportions = positiveIncrease / (negativeIncrease + positiveIncrease);
+    console.log("proportions: ", proportions);
+
     let covidOutOfFive = 0;
     // give a rating larger than 0 if the positiveIncrease is at most 50% of total tested cases
     if (proportions < 0.5) {
         covidOutOfFive = ((1 - proportions) / (1)) * 5;
     }
-    return covidOutOfFive.toFixed(2);
+    let rate = covidOutOfFive.toFixed(2);
+    console.log("Rate: ", rate);
+    return rate;
 }
 
 const rateCovidCountry = (todayCases) => {
+    console.log("rating COVID for country...")
     let dividedByHundred = Math.floor(todayCases / 100);
+    console.log("total cases today: ", todayCases);
+    console.log("total cases today/100: ", dividedByHundred);
+
     let covidOutOfFive = 0;
     if (dividedByHundred > 5) {
         covidOutOfFive = 0;
@@ -1136,12 +1149,17 @@ const rateCovidCountry = (todayCases) => {
         covidOutOfFive = 5 - dividedByHundred;
     }
 
-    return covidOutOfFive.toFixed(2);
+    let rate = covidOutOfFive.toFixed(2);
+    console.log("Rate: ", rate);
+    return rate;
 }
 
 const rateUv = (uvIndex) => {
+    console.log("UV Index: ", uvIndex);
     let uvOutOfFive = ((10 - uvIndex) / 10) * 5;
-    return uvOutOfFive.toFixed(2);
+    let rate = uvOutOfFive.toFixed(2);
+    console.log("Rate: ", rate);
+    return rate
 }
 
 
