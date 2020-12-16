@@ -6,6 +6,8 @@ import React from 'react';
 import { render } from 'react-dom';
 import ProgressBar from "./progressBar.js";
 import FrownyFace from "./frownyFace.png";
+import SignOut from './SignOut.js';
+
 
 export class Result extends React.Component{
     constructor(props){
@@ -115,6 +117,9 @@ export class Result extends React.Component{
                      <button onClick={this.handleLearnMore}>see why</button>
                      <p></p>
                      </div>
+                     <div> 
+                        <SignOut auth = {this.props.auth} />
+                    </div>
                  </div>
                  {details}
                     {/* {items.map(item =>(
