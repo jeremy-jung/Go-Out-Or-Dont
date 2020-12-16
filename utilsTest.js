@@ -44,7 +44,7 @@ const getPassingCountries = (callback) => {
                 if (countriesCityMap[name] != undefined) {
                     // check if capital of country is defined
                     if (countriesCityMap[name] != null) {
-                        if( name != "Columbia") {
+                        if (name != "Colombia" && name != "Marshall Islands") {
                             passingCountries.push(name);
                         }
                     }
