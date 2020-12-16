@@ -55,6 +55,7 @@ const getStateCovidInfo = async (state, callback) => {
             var responseFiltered = {};
             responseFiltered["name"] = responseParsed.state;
             responseFiltered["positiveIncrease"] = responseParsed.positiveIncrease;
+            responseFiltered["negativeIncrease"] = responseParsed.negativeIncrease;
             responseFiltered["inIcuCurrently"] = responseParsed.inIcuCurrently;
 
             // execute callback function
