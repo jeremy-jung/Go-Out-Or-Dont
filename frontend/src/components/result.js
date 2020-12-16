@@ -7,7 +7,15 @@ import { render } from 'react-dom';
 import ProgressBar from "./progressBar.js";
 import FrownyFace from "./frownyFace.png";
 import SignOut from './SignOut.js';
+import style from './button.module.css';
 
+
+import {
+    BrowserRouter as Router,
+    Switch,
+    Route,
+    Link
+} from "react-router-dom";
 
 export class Result extends React.Component{
     constructor(props){
@@ -120,7 +128,9 @@ export class Result extends React.Component{
                      
                  </div>
                  {details}
+
                  <div> 
+                        <Link to = "/locations" className = {style.button} >Back to my List</Link>
                         <SignOut auth = {this.props.auth} />
                 </div>
                     {/* {items.map(item =>(
