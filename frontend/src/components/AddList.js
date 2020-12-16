@@ -181,7 +181,7 @@ class AddList extends React.Component {
                     </div>
                     <div>
                         {this.state.locArr.map((element) => {
-                            return <div> <Link to = {"/result/" + element} className = {element} value = {element} firestore={this.props.firestore} auth = {this.props.auth}>{element}</Link>  </div>
+                            return <div> <Link to = {"/result/" + element} className = {element} value = {element} >{element}</Link>  </div>
                         })}
                     </div>    
                 </main>

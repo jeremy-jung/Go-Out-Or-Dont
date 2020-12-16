@@ -53,7 +53,7 @@ function App() {
        <Router>
           <Switch>
             
-            <Route path = "/result/:id" render={ (props) => <Result {...props}/> } >
+            <Route path = "/result/:id" render={ (props) => <Result {...props} auth={auth} firestore={firestore}/> } >
               
               {/* <Result>
               </Result> */}

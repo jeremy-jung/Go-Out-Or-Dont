@@ -117,11 +117,12 @@ export class Result extends React.Component{
                      <button onClick={this.handleLearnMore}>see why</button>
                      <p></p>
                      </div>
-                     <div> 
-                        <SignOut auth = {this.props.auth} />
-                    </div>
+                     
                  </div>
                  {details}
+                 <div> 
+                        <SignOut auth = {this.props.auth} />
+                </div>
                     {/* {items.map(item =>(
                         <div key={item.uv}>{item.uv} {item.temp}></div>
                     ))} */}
