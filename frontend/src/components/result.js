@@ -18,6 +18,8 @@ import {
     Link
 } from "react-router-dom";
 
+
+
 export class Result extends React.Component{
     constructor(props){
         super(props);
@@ -143,7 +145,11 @@ export class Result extends React.Component{
                         {details}
 
                     </div>
+                    <div> 
+                        <Link to = "/locations" >back to list</Link>
+                    </div>
                     <div>
+                        
                         <SignOut auth={this.props.auth} />
                     </div>
                 </div>
