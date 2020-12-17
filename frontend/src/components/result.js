@@ -39,7 +39,7 @@ export class Result extends React.Component{
 
     handleLearnMore() {
         this.setState({
-            learningMore: true,
+            learningMore: !this.state.learningMore,
             items: this.state.items
         });
     }
@@ -136,7 +136,7 @@ export class Result extends React.Component{
                             {score}
                             <div>
                                 <p style={{ marginTop: '35px', fontSize: '25px'}}>{message}</p>
-                                <button onClick={this.handleLearnMore}>see why</button>
+                                <button onClick={this.handleLearnMore}>{`${learningMore ? 'see less' : 'see why'}`}</button>
                                 <p></p>
                             </div>
 
