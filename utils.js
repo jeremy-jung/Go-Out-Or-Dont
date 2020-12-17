@@ -1104,7 +1104,7 @@ const rateForCountry = (covidResponse, weatherResponse) => {
 }
 
 const rateTemperature = (temperature) => {
-    let dividedByTen = Math.floor(Math.abs(98.6 - temperature) / 20);
+    let dividedByTen = Math.floor(Math.abs(98.6 - temperature) / 15);
     console.log("Temperature in F: ", temperature);
 
     let tempOutOfFive = 0;
