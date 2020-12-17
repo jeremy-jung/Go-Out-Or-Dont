@@ -90,44 +90,8 @@ export class Result extends React.Component{
     }
 
     render(){
-        const learningMore = this.state.learningMore;
-        let score ='3/5';
-        // console.log(this.state.items[3]);
-        // let goOut =  Boolean.parseBoolean(this.state.items[3]['goout']);
-        // if (goOut['goout'] == 'false'){
-        //     score = <img src={FrownyFace} alt="FrownyFace"/>;
-        // } else {
-        //     score = <img src={FrownyFace} alt="FrownyFace"/>;
-        // }
-        // let avgScore = (this.state.items[0]['uv'] + this.state.items[1]['temp'] + this.state.items[2]['covid'])/3;
-        // let score = avgScore + '/5';
-        // if goout is true, print "You should go out today!", if goout is false, print
-        // "Maybe you should stay in today..."
-        let message = 'You should go out today!';
-        let details;
-        let querystring = this.props.match.params.id.substring(1);
-        let placindexComma = querystring.indexOf(",");
-        let place = querystring.substring(0,placindexComma);
-        let worldOption = querystring.substring(placindexComma+1);
-        // console.log(this.props.match.params.id.substring(1));
-        console.log("place: ", place)
-        console.log("worldoption: ", worldOption)  
-
-        if (learningMore){
-            details = 
-            <div class="detailedResult">
-                <div class="individualResult">
-                        <p style= {{marginRight: '20px'}}>UV INDEX</p>
-                        <ProgressBar completed={this.state.items[0]['uv']*20}/>
-                        <p style={{marginLeft: '20px', width: '30px'}}>{this.state.items[0]['uv']}</p>
-                    </div>
-                    <div class="individualResult">
-                        <p style= {{marginRight: '20px'}}>TEMP</p>
-                        <ProgressBar completed={this.state.items[1]['temp']*20}/>
-                        <p style={{marginLeft: '20px', width: '30px'}}>{this.state.items[1]['temp']}</p>
-
         if (this.state.apiResponse == true) {
-            const learningMore = this.state.learningMore;
+            var learningMore = this.state.learningMore;
             let score;
             let message = '';
             
@@ -141,8 +105,7 @@ export class Result extends React.Component{
             let details;
 
             if (learningMore) {
-                details =
-                    <div class="detailedResult">
+                    details = <div class="detailedResult">
                         <div class="individualResult">
                             <p style={{ marginRight: '20px' }}>UV INDEX</p>
                             <ProgressBar completed={this.state.items[0]['uv'] * 20} />
@@ -181,7 +144,6 @@ export class Result extends React.Component{
 
                     </div>
                     <div>
-                        <Link to="/locations" className={style.button} >Back to my List</Link>
                         <SignOut auth={this.props.auth} />
                     </div>
                 </div>
@@ -192,20 +154,6 @@ export class Result extends React.Component{
                 <div>Loading results...</div>
             );
         }
-
-        return(
-            <div>
-                 <div class="simpleResult">
-                    {score}
-                    <div>
-                    <p style={{marginTop: '35px'}}>{message}</p>
-                     <button onClick={this.handleLearnMore}>see why</button>
-                     <p></p>
-                     </div>
-                 </div>
-                 {details}
-            </div>
-        );
     }
 }
 
