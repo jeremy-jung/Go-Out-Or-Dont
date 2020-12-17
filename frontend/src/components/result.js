@@ -146,10 +146,10 @@ export class Result extends React.Component{
 
                     </div>
                     <div> 
-                        <Link to = "/locations" >back to list</Link>
                     </div>
                     <div>
-                        
+                        <Link to = "/locations" className = {style.button} style={{fontSize: '15px', borderRadius: '20px', backgroundColor: 'rgba(255,255,255,0.3)'}}>back to list</Link>
+                        <br/> <br/>
                         <SignOut auth={this.props.auth} />
                     </div>
                 </div>
