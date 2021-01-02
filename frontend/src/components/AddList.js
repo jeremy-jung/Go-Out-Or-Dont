@@ -174,7 +174,7 @@ class AddList extends React.Component {
             return (<>
                 <main>
                     <div>
-                        <h1>Hello {this.props.auth.currentUser.displayName}</h1>
+                        <h1 style={{color: '#ffff'}}>Hello {this.props.auth.currentUser.displayName}</h1>
                         
                     </div>
                     <div>

@@ -39,7 +39,7 @@ export class Result extends React.Component{
 
     handleLearnMore() {
         this.setState({
-            learningMore: true,
+            learningMore: !this.state.learningMore,
             items: this.state.items
         });
     }
@@ -107,7 +107,8 @@ export class Result extends React.Component{
             let details;
 
             if (learningMore) {
-                    details = <div class="detailedResult">
+                    details = <div style={{marginBottom: '30px'}} class="detailedResult"><br/>
+                        <div style={{color: '#ffff', fontSize: '13px'}}>The higher the score, the better the condition is! So if your results said not to leave the house but COVID-19 is 5/5, at least you know you're safe!</div>
                         <div class="individualResult">
                             <p style={{ marginRight: '20px' }}>UV INDEX</p>
                             <ProgressBar completed={this.state.items[0]['uv'] * 20} />
@@ -134,10 +135,8 @@ export class Result extends React.Component{
                         <div class="simpleResult">
                             {score}
                             <div>
-                                <p style={{ marginTop: '35px' }}>{message}</p>
-                                {/* the score out of ten */}
-                                {/* statement that says whether user should leave the house */}
-                                <button onClick={this.handleLearnMore}>see why</button>
+                                <p style={{ marginTop: '35px', fontSize: '25px'}}>{message}</p>
+                                <button onClick={this.handleLearnMore}>{`${learningMore ? 'see less' : 'see why'}`}</button>
                                 <p></p>
                             </div>
 
@@ -146,10 +145,10 @@ export class Result extends React.Component{
 
                     </div>
                     <div> 
-                        <Link to = "/locations" >back to list</Link>
                     </div>
                     <div>
-                        
+                        <Link to = "/locations" className = {style.button} style={{fontSize: '15px', borderRadius: '20px', backgroundColor: 'rgba(255,255,255,0.3)'}}>back to list</Link>
+                        <br/> <br/>
                         <SignOut auth={this.props.auth} />
                     </div>
                 </div>
@@ -157,7 +156,7 @@ export class Result extends React.Component{
         }
         else {
             return(
-                <div>Loading results...</div>
+                <div style={{color: '#ffff'}}>Loading results...</div>
             );
         }
     }
